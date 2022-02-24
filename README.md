@@ -1,5 +1,5 @@
 # 2022-nosql-lsm
-Задание для пересдачи [курса](https://polis.vk.company/curriculum/program/discipline/1356/) "Проектирование высоконагруженных систем" в [Образовательном центре VK в Политехе](https://polis.vk.company/).
+Проект [курса](https://polis.vk.company/curriculum/program/discipline/1356/) "NoSQL" в [Образовательном центре VK в Политехе](https://polis.vk.company/).
 
 ## Этап 1. In-memory (deadline 2022-03-02 23:59:59 MSK)
 ### Fork
