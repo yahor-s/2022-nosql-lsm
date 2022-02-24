@@ -17,7 +17,7 @@ From github.com:polis-vk/2022-nosql-lsm
 ### Make
 Так можно запустить тесты (ровно то, что делает CI):
 ```
-$ ./gradlew test
+$ ./gradlew clean build
 ```
 
 ### Develop
