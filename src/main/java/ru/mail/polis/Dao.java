@@ -5,7 +5,7 @@ import java.util.Iterator;
 public interface Dao<Data, E extends Entry<Data>> {
 
     /**
-     * Return ordered iterator of entries with keys between from (inclusive) and to (exclusive).
+     * Returns ordered iterator of entries with keys between from (inclusive) and to (exclusive).
      * @param from lower bound of range (inclusive)
      * @param to upper bound of range (exclusive)
      * @return entries [from;to)
@@ -13,8 +13,9 @@ public interface Dao<Data, E extends Entry<Data>> {
     Iterator<E> get(Data from, Data to);
 
     /**
-     * Return ordered iterator of all entries
-     * @return all entries
+     * Returns entry by key. Note: default implementation is far from optimal.
+     * @param key entry`s key
+     * @return entry
      */
     default E get(Data key) {
         Iterator<E> iterator = get(key, null);
@@ -29,7 +30,7 @@ public interface Dao<Data, E extends Entry<Data>> {
     }
 
     /**
-     * Return ordered iterator of all entries with keys from (inclusive)
+     * Returns ordered iterator of all entries with keys from (inclusive)
      * @param from lower bound of range (inclusive)
      * @return entries with key >= from
      */
@@ -38,7 +39,7 @@ public interface Dao<Data, E extends Entry<Data>> {
     }
 
     /**
-     * Return ordered iterator of all entries with keys < to
+     * Returns ordered iterator of all entries with keys < to
      * @param to upper bound of range (exclusive)
      * @return entries with key < to
      */
@@ -47,7 +48,7 @@ public interface Dao<Data, E extends Entry<Data>> {
     }
 
     /**
-     * Return ordered iterator of all entries
+     * Returns ordered iterator of all entries
      * @return all entries
      */
     default Iterator<E> all() {
