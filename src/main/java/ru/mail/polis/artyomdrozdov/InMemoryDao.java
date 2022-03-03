@@ -25,6 +25,11 @@ public class InMemoryDao implements Dao<String, Entry<String>> {
     }
 
     @Override
+    public Entry<String> get(String key) {
+        return storage.get(key);
+    }
+
+    @Override
     public void upsert(Entry<String> entry) {
         storage.put(entry.key(), entry);
     }
