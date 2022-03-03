@@ -39,17 +39,6 @@ test {
     useJUnitPlatform()
     jvmArgs += ["--add-modules", "jdk.incubator.foreign"]
 }
-compileJava {
-    options.compilerArgs += ["--add-modules", "jdk.incubator.foreign"]
-}
-
-compileTestJava {
-    options.compilerArgs += ["--add-modules", "jdk.incubator.foreign"]
-}
-
-test {
-    jvmArgs += ["--add-modules", "jdk.incubator.foreign"]
-}
 
 checkstyle {
     configFile = new File("checkstyle.xml")
