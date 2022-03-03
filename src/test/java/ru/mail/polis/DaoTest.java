@@ -136,7 +136,13 @@ public @interface DaoTest {
             context.getStore(ExtensionContext.Namespace.GLOBAL).put(ID.incrementAndGet() + "", res);
 
             DaoFactory.Factory<?, ?> f = (DaoFactory.Factory<?, ?>) clazz.getDeclaredConstructor().newInstance();
-            return f.createStringDao(new Config(tmp));
+
+            Dao<String, Entry<String>> dao = f.createStringDao(new Config(tmp));
+
+            ExtensionContext.Store.CloseableResource resDao = dao::close;
+            context.getStore(ExtensionContext.Namespace.GLOBAL).put(ID.incrementAndGet() + "", resDao);
+
+            return dao;
         }
     }
 
