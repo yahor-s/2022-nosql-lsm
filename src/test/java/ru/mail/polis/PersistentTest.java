@@ -19,6 +19,16 @@ public class PersistentTest extends BaseTest {
     }
 
     @DaoTest(stage = 2)
+    void multiLine(Dao<String, Entry<String>> dao) throws IOException {
+        final Entry<String> entry = entry("key1\nkey2", "value1\nvalue2");
+        dao.upsert(entry);
+        dao.close();
+
+        dao = DaoFactory.Factory.reopen(dao);
+        assertSame(dao.get(entry.key()), entry);
+    }
+
+    @DaoTest(stage = 2)
     void cleanup(Dao<String, Entry<String>> dao) throws IOException {
         dao.upsert(entryAt(1));
         dao.close();
