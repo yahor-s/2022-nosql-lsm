@@ -34,6 +34,9 @@ class TestDao<D, E extends Entry<D>> implements Dao<String, Entry<String>> {
     }
 
     public Dao<String, Entry<String>> reopen() throws IOException {
+        if (delegate != null) {
+            throw new IllegalStateException("Reopening open db");
+        }
         TestDao<D, E> child = new TestDao<>(factory, config);
         children.add(child);
         return child;
