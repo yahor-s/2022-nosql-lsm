@@ -25,10 +25,11 @@ public interface Dao<D, E extends Entry<D>> extends Closeable {
             return null;
         }
         E next = iterator.next();
-        if (next.key().equals(key)) {
-            return next;
-        }
-        return null;
+        // Equals use MemorySegment equals, not comparator equals, and it sucks
+//        if (next.key().equals(key)) {
+//            return next;
+//        }
+        return next;
     }
 
     /**
